@@ -1,0 +1,12 @@
+django<2
+django-extensions
+
+pylint
+pylint-django
+autopep8
+
+djangorestframework
+simplejson
+
+requests
+
