@@ -11,4 +11,4 @@ simplejson
 requests
 boto3
 
-guncorn
+gunicorn
