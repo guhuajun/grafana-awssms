@@ -44,13 +44,17 @@ class GrafanaServiceAdmin(admin.ModelAdmin):
                 json_response = json.loads(response.content)
                 rules = json_response
                 for rule in rules:
+                    defaults = {
+                        "dashboard_id": rule['dashboardId'],
+                        "panel_id": rule['panelId'],
+                        "name": rule['name']
+                    }
                     models.Rule.objects.get_or_create(
+                        service=service,
                         rule_id=rule['id'],
-                        dashboard_id=rule['dashboardId'],
-                        panel_id=rule['panelId'],
-                        name=rule['name']
+                        defaults=defaults
                     )
-
+                self.message_user(request, '{0} rules are loaded.'.format(len(rules)))
             except Exception as ex:
                 self.message_user(request, 'Failed to loads rules from {0}, {1}'.format(
                     url, str(ex)), level=messages.ERROR)
@@ -58,5 +62,11 @@ class GrafanaServiceAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.GrafanaService, GrafanaServiceAdmin)
+admin.site.register(models.AwsCredential)
 admin.site.register(models.Subscriber)
 admin.site.register(models.Rule)
+
+
+admin.site.site_header = 'Grafana AWS SMS'
+admin.site.site_title = 'Grafana AWS SMS'
+admin.site.index_title = 'Grafana AWS SMS'

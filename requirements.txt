@@ -10,3 +10,4 @@ simplejson
 
 requests
 
+boto3
