@@ -11,7 +11,11 @@ A django project for sending grafana alert via AWS SMS.
 
 If you are familiar with deploying a django project, please go ahead to use this repo directly.
 Alternatively, you can pull a prebuild image from docker.
-
 ```
 sudo docker pull greggu/grafana-awssms
+```
+
+Then running following command to start.
+```
+sudo docker run greggu/grafana-awssms gunicorn project.wsgi:application -b 0.0.0.0:8700
 ```
