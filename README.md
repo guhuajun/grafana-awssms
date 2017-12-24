@@ -36,7 +36,7 @@ After that you can open http://127.0.0.1:8700 in your browser.
 
 Please follow http://docs.grafana.org/alerting/notifications/#notification-channel-setup to setup a notification channel.
 
-![01] (https://github.com/guhuajun/grafana-awssms/images/01.png)
+![01] (https://github.com/guhuajun/grafana-awssms/blob/master/images/01.png?raw=true)
 
 
 # TODO
