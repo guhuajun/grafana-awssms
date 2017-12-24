@@ -17,5 +17,5 @@ sudo docker pull greggu/grafana-awssms
 
 Then running following command to start.
 ```
-sudo docker run greggu/grafana-awssms gunicorn project.wsgi:application -b 0.0.0.0:8700
+sudo docker run greggu/grafana-awssms python manage.py runserver 8700
 ```
