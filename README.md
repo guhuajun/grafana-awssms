@@ -17,5 +17,5 @@ sudo docker pull greggu/grafana-awssms
 
 Then running following command to start.
 ```
-sudo docker run greggu/grafana-awssms python manage.py runserver 8700
+sudo docker run -p 8700:8700 greggu/grafana-awssms python manage.py runserver 0.0.0.0:8700
 ```
