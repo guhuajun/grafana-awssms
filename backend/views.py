@@ -2,7 +2,6 @@
 # pylint: disable=
 
 import logging
-from concurrent.futures import ThreadPoolExecutor
 
 import boto3
 import simplejson as json
@@ -45,14 +44,15 @@ class AlertHandlerView(APIView):
         try:
             alert = json.loads(request.body)
             rule_id = alert['ruleId']
+            logger.debug('Received alert: %s', alert)
 
             if alert['state'] != 'ok':
                 rule = models.Rule.objects.filter(
                     rule_id=rule_id).first()
                 if rule:
-                    with ThreadPoolExecutor(max_workers=4) as worker:
-                        for subscriber in rule.subscribers.all():
-                            worker.submit(send_sms, subscriber, alert['message'])
+                    message = alert['message'] if alert['message'] else alert['title']
+                    for subscriber in rule.subscribers.all():
+                        send_sms(subscriber.mobile, message)
 
             return Response(data={'status': 'ok'})
         except Exception as ex:

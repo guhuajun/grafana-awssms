@@ -4,5 +4,11 @@
     "python.linting.pylintArgs": [
         "--load-plugins", "pylint_django"
     ],
-    "python.formatting.autopep8Path": "autopep8"
+    "python.formatting.autopep8Path": "autopep8",
+    "spellright.language": "en",
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
 }
