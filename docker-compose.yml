@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8700
+    volumes:
+      - .:/code
+    ports:
+      - "8700:8700"
