@@ -36,8 +36,6 @@ After that you can open http://127.0.0.1:8700 in your browser.
 
 Please follow http://docs.grafana.org/alerting/notifications/#notification-channel-setup to setup a notification channel.
 
-![01] (https://github.com/guhuajun/grafana-awssms/images/01.png)
-
 
 # TODO
 Need to find a way deploy this app via gunicorn/nginx with docker.
