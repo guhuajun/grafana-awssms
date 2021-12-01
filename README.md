@@ -1,6 +1,10 @@
 # grafana-awssms
 A django project for sending grafana alert via AWS SMS.
 
+## Archive Notes
+
+We have better choices these days, starlette is my new toy~ So archive this one~
+
 ## Preparation
 
 * Running grafana behind nginx by following http://docs.grafana.org/installation/behind_proxy/
